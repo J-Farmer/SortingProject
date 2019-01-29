@@ -10,35 +10,36 @@ def formatTime(algorithm, time):
 		print("%s took: %f seconds!" %(algorithm, time))
 
 
-
 arr = []
 file = open("../random_numbers.txt")
 for lines in file:
     arr.append(int(lines))
 file.close()
 
-bs = arr
+print(arr[::100])
+
+bs = arr[:]
 start = timer()
 bubbleSort(bs)
 end = timer()
 time = round(end-start,3)
 formatTime("Bubble Sort", time)
 
-ss = arr
+ss = arr[:]
 start = timer()
 selectionSort(ss)
 end = timer()
 time = round(end-start,3)
 formatTime("Selection Sort", time)
 
-cs = arr
+cs = arr[:]
 start = timer()
 cocktailSort(cs)
 end = timer()
 time = round(end-start,3)
 formatTime("Cocktail Sort", time)
 
-oes = arr
+oes = arr[:]
 start = timer()
 oddEvenSort(oes)
 end = timer()
