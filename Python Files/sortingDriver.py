@@ -17,8 +17,9 @@ for lines in file:
     arr.append(int(lines))
 file.close()
 
+bs = arr
 start = timer()
-bubbleSort(arr)
+bubbleSort(bs)
 end = timer()
 time = round(end-start,3)
 formatTime("Bubble Sort", time)
