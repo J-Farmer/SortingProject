@@ -15,6 +15,7 @@ file = open("../random_numbers.txt")
 for lines in file:
     arr.append(int(lines))
 file.close()
+del file
 
 print(arr[::100])
 
@@ -24,6 +25,7 @@ bubbleSort(bs)
 end = timer()
 time = round(end-start,3)
 formatTime("Bubble Sort", time)
+del bs
 
 ss = arr[:]
 start = timer()
@@ -31,6 +33,7 @@ selectionSort(ss)
 end = timer()
 time = round(end-start,3)
 formatTime("Selection Sort", time)
+del ss
 
 cs = arr[:]
 start = timer()
@@ -38,6 +41,7 @@ cocktailSort(cs)
 end = timer()
 time = round(end-start,3)
 formatTime("Cocktail Sort", time)
+del cs
 
 oes = arr[:]
 start = timer()
@@ -45,3 +49,6 @@ oddEvenSort(oes)
 end = timer()
 time = round(end-start,3)
 formatTime("Odd Even Sort", time)
+del oes
+del arr
+del time
