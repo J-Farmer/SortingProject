@@ -19,7 +19,7 @@ void Sorting::SelectionSort(int arr[], int n)
 			{
 				min_idx = j;
 			}
-			swap(&arr[min_idx], &arr[j]);
+			swap(arr[min_idx], arr[j]);
 		}
 	}
 }
@@ -34,7 +34,7 @@ void Sorting::BubbleSort(int arr[], int n)
 		{
 			if(arr[j] > arr[j+1])
 			{
-				swap(&arr[j],&arr[j+1]);
+				swap(arr[j],arr[j+1]);
 				swapped = true;
 			}
 		}
@@ -55,9 +55,9 @@ void Sorting::CocktailSort(int arr[], int n)
 		
 		for(int i=start; i<end; i++)
 		{
-			if(a[i] > a[i+1])
+			if(arr[i] > arr[i+1])
 			{
-				swap(&a[i],&a[i+1]);
+				swap(arr[i],arr[i+1]);
 				swapped=true;
 			}
 		}
@@ -70,7 +70,7 @@ void Sorting::CocktailSort(int arr[], int n)
 		{
 			if(arr[i] > arr[i+1])
 			{
-				swap(&a[i],&a[i+1]);
+				swap(a[i],a[i+1]);
 				swapped=true;
 			}
 		}
