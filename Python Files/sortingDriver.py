@@ -105,14 +105,14 @@ for i in range(0,100):
         formatTime(str(i+1), time)
 
 
-formatTime("Bubble Sort", sum(bsTime)/len(bsTime))
-formatTime("Selection Sort", sum(ssTime)/len(ssTime))
-formatTime("Cocktail Sort", sum(csTime)/len(csTime))
-formatTime("Odd Even Sort", sum(oesTime)/len(oesTime))
-formatTime("Pigeonhole Sort", sum(phsTime)/len(phsTime))
-formatTime("Shell Sort", sum(shsTime)/len(shsTime))
-formatTime("Quick Sort (H) Sort", sum(qsHTime)/len(qsHTime))
-formatTime("Quick Sort (L) Sort", sum(qsLTime)/len(qsLTime))
+formatTime("Bubble Sort", round(sum(bsTime)/len(bsTime),3))
+formatTime("Selection Sort", round(sum(ssTime)/len(ssTime),3))
+formatTime("Cocktail Sort", round(sum(csTime)/len(csTime),3))
+formatTime("Odd Even Sort", round(sum(oesTime)/len(oesTime),3))
+formatTime("Pigeonhole Sort", round(sum(phsTime)/len(phsTime),3))
+formatTime("Shell Sort", round(sum(shsTime)/len(shsTime),3))
+formatTime("Quick Sort (H) Sort", round(sum(qsHTime)/len(qsHTime),3))
+formatTime("Quick Sort (L) Sort", round(sum(qsLTime)/len(qsLTime),3))
 
 del phs
 del shs
