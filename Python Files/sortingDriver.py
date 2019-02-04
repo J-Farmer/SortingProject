@@ -2,6 +2,8 @@ from timeit import default_timer as timer
 from sortingAlgo import bubbleSort, selectionSort, cocktailSort, oddEvenSort
 from pigeonhole_Sort import pigeonholeSort
 from shellSort import shellSort
+from quickSort import quickSort
+import quickSortH, quickSortL
 
 def formatTime(algorithm, time):
 	if(time > 60):
@@ -18,52 +20,99 @@ for lines in file:
 file.close()
 del file
 
-print(arr[::100])
+bsTime = []
+ssTime = []
+csTime = []
+oesTime = []
+phsTime = []
+shsTime = []
+qsHTime = []
+qsLTime = []
 
-bs = arr[:]
-start = timer()
-bubbleSort(bs)
-end = timer()
-time = round(end-start,3)
-formatTime("Bubble Sort", time)
-del bs
+for i in range(0,100):
+        print(i)
+        bigStart = timer()
+        
+        bs = arr[:]
+        start = timer()
+        bubbleSort(bs)
+        end = timer()
+        time = round(end-start,3)
+        bsTime.append(time)
+        #formatTime("Bubble Sort", time)
+        del bs
 
-ss = arr[:]
-start = timer()
-selectionSort(ss)
-end = timer()
-time = round(end-start,3)
-formatTime("Selection Sort", time)
-del ss
+        ss = arr[:]
+        start = timer()
+        selectionSort(ss)
+        end = timer()
+        time = round(end-start,3)
+        ssTime.append(time)
+        #formatTime("Selection Sort", time)
+        del ss
 
-cs = arr[:]
-start = timer()
-cocktailSort(cs)
-end = timer()
-time = round(end-start,3)
-formatTime("Cocktail Sort", time)
-del cs
+        cs = arr[:]
+        start = timer()
+        cocktailSort(cs)
+        end = timer()
+        time = round(end-start,3)
+        csTime.append(time)
+        #formatTime("Cocktail Sort", time)
+        del cs
 
-oes = arr[:]
-start = timer()
-oddEvenSort(oes)
-end = timer()
-time = round(end-start,3)
-formatTime("Odd Even Sort", time)
+        oes = arr[:]
+        start = timer()
+        oddEvenSort(oes)
+        end = timer()
+        time = round(end-start,3)
+        oesTime.append(time)
+        #formatTime("Odd Even Sort", time)
 
-phs = arr[:]
-start = timer()
-pigeonholeSort(phs)
-end = timer()
-time = round(end-start,3)
-formatTime("Pigeonhole Sort", time)
+        phs = arr[:]
+        start = timer()
+        pigeonholeSort(phs)
+        end = timer()
+        time = round(end-start,3)
+        phsTime.append(time)
+        #formatTime("Pigeonhole Sort", time)
 
-shs = arr[:]
-start = timer()
-shellSort(shs)
-end = timer()
-time = round(end-start,3)
-formatTime("Shell Sort", time)
+        shs = arr[:]
+        start = timer()
+        shellSort(shs)
+        end = timer()
+        time = round(end-start,3)
+        shsTime.append(time)
+        #formatTime("Shell Sort", time)
+
+        qsH = arr[:]
+        start = timer()
+        quickSortH.quickSort(qsH, 0, len(qsH)-1)
+        end = timer()
+        time = round(end-start,3)
+        qsHTime.append(time)
+        #formatTime("Quick Sort (Hoare)", time)
+
+        qsL = arr[:]
+        start = timer()
+        quickSortL.quickSort(qsL, 0, len(qsL)-1)
+        end = timer()
+        time = round(end-start,3)
+        qsLTime.append(time)
+        #formatTime("Quick Sort (Lomuto)", time)
+        
+        bigEnd = timer()
+        time = round(bigEnd-bigStart,3)
+        print(time)
+
+
+formatTime("Bubble Sort", sum(bsTime)/len(bsTime))
+formatTime("Selection Sort", sum(ssTime)/len(ssTime))
+formatTime("Cocktail Sort", sum(csTime)/len(csTime))
+formatTime("Odd Even Sort", sum(oesTime)/len(oesTime))
+formatTime("Pigeonhole Sort", sum(phsTime)/len(phsTime))
+formatTime("Shell Sort", sum(shsTime)/len(shsTime))
+formatTime("Quick Sort (H) Sort", sum(qsHTime)/len(qsHTime))
+formatTime("Quick Sort (L) Sort", sum(qsLTime)/len(qsLTime))
 
 del phs
 del shs
