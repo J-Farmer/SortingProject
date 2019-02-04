@@ -8,9 +8,9 @@ import quickSortH, quickSortL
 def formatTime(algorithm, time):
 	if(time > 60):
 		time = time / 60
-		print("%s took: %f minutes!" %(algorithm,time))
+		print("%s took: %s minutes!" %(algorithm,time))
 	else:
-		print("%s took: %f seconds!" %(algorithm, time))
+		print("%s took: %s seconds!" %(algorithm, time))
 
 
 arr = []
@@ -30,7 +30,7 @@ qsHTime = []
 qsLTime = []
 
 for i in range(0,100):
-        print(i)
+        
         bigStart = timer()
         
         bs = arr[:]
@@ -102,7 +102,7 @@ for i in range(0,100):
         
         bigEnd = timer()
         time = round(bigEnd-bigStart,3)
-        print(time)
+        formatTime(str(i+1), time)
 
 
 formatTime("Bubble Sort", sum(bsTime)/len(bsTime))
