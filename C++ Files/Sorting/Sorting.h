@@ -3,7 +3,7 @@
 class Sorting
 {
 public:
-	char* readFile(char* file);
+	int* readFile(const char* file, int arr[]);
 	void SelectionSort(int arr[], int n);
 	void BubbleSort(int arr[], int n);
 	void CocktailSort(int arr[], int n);

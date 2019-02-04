@@ -19,7 +19,7 @@ void Sorting::SelectionSort(int arr[], int n)
 			{
 				min_idx = j;
 			}
-			swap(arr[min_idx], arr[j]);
+			swap(&arr[min_idx], &arr[j]);
 		}
 	}
 }
@@ -27,14 +27,14 @@ void Sorting::SelectionSort(int arr[], int n)
 void Sorting::BubbleSort(int arr[], int n)
 {
 	bool swapped;
-	for(int i = 0; i < n - 1; i++
+	for(int i = 0; i < n - 1; i++)
 	{
 		swapped = false;
 		for(int j = 0; j < n - i - 1; j++)
 		{
 			if(arr[j] > arr[j+1])
 			{
-				swap(arr[j],arr[j+1]);
+				swap(&arr[j],&arr[j+1]);
 				swapped = true;
 			}
 		}
@@ -57,7 +57,7 @@ void Sorting::CocktailSort(int arr[], int n)
 		{
 			if(arr[i] > arr[i+1])
 			{
-				swap(arr[i],arr[i+1]);
+				swap(&arr[i],&arr[i+1]);
 				swapped=true;
 			}
 		}
@@ -70,7 +70,7 @@ void Sorting::CocktailSort(int arr[], int n)
 		{
 			if(arr[i] > arr[i+1])
 			{
-				swap(a[i],a[i+1]);
+				swap(&arr[i],&arr[i+1]);
 				swapped=true;
 			}
 		}
@@ -91,7 +91,7 @@ void Sorting::OddEvenSort(int arr[], int n)
         { 
             if (arr[i] > arr[i+1]) 
              { 
-                swap(arr[i], arr[i+1]); 
+                swap(&arr[i], &arr[i+1]); 
                 isSorted = false; 
               } 
         } 
@@ -101,14 +101,27 @@ void Sorting::OddEvenSort(int arr[], int n)
         { 
             if (arr[i] > arr[i+1]) 
             { 
-                swap(arr[i], arr[i+1]); 
+                swap(&arr[i], &arr[i+1]); 
                 isSorted = false; 
             } 
         } 
     }	
 }
 
-void Sorting::readFile(char* file)
+int* Sorting::readFile(const char* file, int arr[])
 {
+	std::ifstream in;
+	in.open(file);
+ 
+	for (int i = 0; i < 8977; i++)
+	{
+		in >> arr[i]; 
+	}
 
+	for (int i = 0; i < 8977; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+
+	return arr; 
 }

@@ -7,15 +7,19 @@ using namespace std;
 
 int main()
 {
+	int arr[8977];
+
+	Sorting s;
+	s.readFile("../../random_numbers.txt", arr);
+
 	cout << "Sorting!!!!" << endl;
-	int arr[] = {1,9,5,3,4,10,6};
 	cout << "Size of array in Main: " << sizeof(arr)/sizeof(arr[0]) << endl;
 	for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
 		cout << arr[i] << " ";
 
 	cout << endl; 
 
-	Sorting s;
+	
 	time_t start, end;
 	start = clock();
 	s.SelectionSort(arr, (sizeof(arr)/sizeof(arr[0])));

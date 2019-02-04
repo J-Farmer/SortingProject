@@ -1,6 +1,7 @@
 from timeit import default_timer as timer
 from sortingAlgo import bubbleSort, selectionSort, cocktailSort, oddEvenSort
-
+from pigeonhole_Sort import pigeonholeSort
+from shellSort import shellSort
 
 def formatTime(algorithm, time):
 	if(time > 60):
@@ -49,6 +50,23 @@ oddEvenSort(oes)
 end = timer()
 time = round(end-start,3)
 formatTime("Odd Even Sort", time)
+
+phs = arr[:]
+start = timer()
+pigeonholeSort(phs)
+end = timer()
+time = round(end-start,3)
+formatTime("Pigeonhole Sort", time)
+
+shs = arr[:]
+start = timer()
+shellSort(shs)
+end = timer()
+time = round(end-start,3)
+formatTime("Shell Sort", time)
+
+del phs
+del shs
 del oes
 del arr
 del time
