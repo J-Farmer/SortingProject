@@ -129,7 +129,6 @@ public class Sorting{
 			int index = 0;
 			while((num = is.readLine()) != null)
 			{
-				//System.out.println(num);
 				arr[index] = Integer.parseInt(num);
 				bsArr[index] = Integer.parseInt(num);
 				ssArr[index] = Integer.parseInt(num);
@@ -144,17 +143,32 @@ public class Sorting{
 			System.out.print(io.getStackTrace());
 			return; 
 		}
+		long startTime, end; 
 		
-		System.out.println("Sorting!");
-		
-		long startTime = System.nanoTime();
-		s.bubbleSort(arr);
-		long end = System.nanoTime() - startTime;
+		startTime = System.nanoTime();
+		s.bubbleSort(bsArr);
+		end = System.nanoTime() - startTime;
 		System.out.println();
 		System.out.println("Bubble Sort: " + (double)end/1000000000);
+		
+		startTime = System.nanoTime();
+		s.selectionSort(ssArr);
+		end = System.nanoTime() - startTime;
+		System.out.println();
+		System.out.println("Selection Sort: " + (double)end/1000000000);
+		
+		startTime = System.nanoTime();
+		s.cocktailSort(csArr);
+		end = System.nanoTime() - startTime;
+		System.out.println();
+		System.out.println("Cocktail Sort: " + (double)end/1000000000);
+		
+		startTime = System.nanoTime();
+		s.oddEvenSort(oesArr);
+		end = System.nanoTime() - startTime;
+		System.out.println();
+		System.out.println("Odd Even Sort: " + (double)end/1000000000);
 
-		for(int i = 0; i < arr.length; i=i+10)
-			System.out.print(arr[i]+" ");
 		
 		System.out.println();
 	}
