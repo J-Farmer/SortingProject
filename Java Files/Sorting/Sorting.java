@@ -123,56 +123,67 @@ public class Sorting{
 		int[] csArr = new int[fileSize];
 		int[] oesArr = new int[fileSize];
 		
-		try
+		long bsTime = 0, ssTime = 0, csTime = 0, oesTime = 0; 
+		for(int i = 0; i < 100; i++)
 		{
-			File f = new File("../../random_numbers.txt");
-			BufferedReader is = new BufferedReader(new FileReader(f));
-			String num;
-			int index = 0;
-			while((num = is.readLine()) != null)
+			try
 			{
-				arr[index] = Integer.parseInt(num);
-				bsArr[index] = Integer.parseInt(num);
-				ssArr[index] = Integer.parseInt(num);
-				csArr[index] = Integer.parseInt(num);
-				oesArr[index] = Integer.parseInt(num);
-				index++;
-			}
-			is.close(); 
-		}
-		catch(IOException io)
-		{
-			System.out.print(io.getStackTrace());
-			return; 
-		}
-		long startTime, end; 
-		
-		startTime = System.nanoTime();
-		s.bubbleSort(bsArr);
-		end = System.nanoTime() - startTime;
-		System.out.println();
-		System.out.println("Bubble Sort: " + (double)end/1000000000);
-		
-		startTime = System.nanoTime();
-		s.selectionSort(ssArr);
-		end = System.nanoTime() - startTime;
-		System.out.println();
-		System.out.println("Selection Sort: " + (double)end/1000000000);
-		
-		startTime = System.nanoTime();
-		s.cocktailSort(csArr);
-		end = System.nanoTime() - startTime;
-		System.out.println();
-		System.out.println("Cocktail Sort: " + (double)end/1000000000);
-		
-		startTime = System.nanoTime();
-		s.oddEvenSort(oesArr);
-		end = System.nanoTime() - startTime;
-		System.out.println();
-		System.out.println("Odd Even Sort: " + (double)end/1000000000);
+				File f = new File("../../random_numbers.txt");
+				BufferedReader is = new BufferedReader(new FileReader(f));
 
+				String num;
+				int index = 0;
+				while((num = is.readLine()) != null)
+				{
+					arr[index] = Integer.parseInt(num);
+					bsArr[index] = Integer.parseInt(num);
+					ssArr[index] = Integer.parseInt(num);
+					csArr[index] = Integer.parseInt(num);
+					oesArr[index] = Integer.parseInt(num);
+					index++;
+				}
+				is.close(); 
+			}
+			catch(IOException io)
+			{
+				System.out.print(io.getStackTrace());
+				return; 
+			}
+			
+			long startTime, end; 
 		
-		System.out.println();
+			startTime = System.nanoTime();
+			s.bubbleSort(bsArr);
+			end = System.nanoTime() - startTime;
+			bsTime += (double)end/1000000000; 
+			//System.out.println("Bubble Sort: " + (double)end/1000000000);
+			
+			startTime = System.nanoTime();
+			s.selectionSort(ssArr);
+			end = System.nanoTime() - startTime;
+			ssTime += (double)end/1000000000;
+			//System.out.println("Selection Sort: " + (double)end/1000000000);
+			
+			startTime = System.nanoTime();
+			s.cocktailSort(csArr);
+			end = System.nanoTime() - startTime;
+			csTime += (double)end/1000000000;
+			//System.out.println("Cocktail Sort: " + (double)end/1000000000);
+			
+			startTime = System.nanoTime();
+			s.oddEvenSort(oesArr);
+			end = System.nanoTime() - startTime;
+			oesTime += (double)end/1000000000;
+			//System.out.println("Odd Even Sort: " + (double)end/1000000000);
+
+			
+			System.out.println();
+		}
+		
+		System.out.println("Bubble Sort: " + bsTime / 100);
+		System.out.println("Selection Sort: " + ssTime / 100);
+		System.out.println("Cocktail Sort: " + csTime / 100);
+		System.out.println("Odd Even Sort: " + oesTime / 100);
 	}
 }
 
