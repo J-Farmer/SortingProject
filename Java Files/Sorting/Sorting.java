@@ -66,14 +66,14 @@ public class Sorting{
             end = end - 1; 
   
             for (int i = end - 1; i >= start; i--)
-	{
-                	if (arr[i] > arr[i + 1])
 			{
-                    		int temp = arr[i];
-                    		arr[i] = arr[i + 1];
-                    		arr[i + 1] = temp;
-                    		swapped = true;
-                	}
+				if (arr[i] > arr[i + 1])
+				{
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
             }
             start = start + 1;
         }
@@ -84,10 +84,10 @@ public class Sorting{
 		boolean isSorted = false;
 		int n = arr.length;
 
-        	while (!isSorted)
-        	{
-            		isSorted = true;
-            		int temp = 0;
+        while (!isSorted)
+        {
+            isSorted = true;
+            int temp = 0;
 
             for (int i=1; i<=n-2; i=i+2)
             {

@@ -7,28 +7,27 @@ using namespace std;
 
 int main()
 {
-	int arr[8977];
+	const int fileSize = 8977;
+	int arr[fileSize];
+	int bsArr[fileSize]; 
+	int ssArr[fileSize];
+	int csArr[fileSize];
+	int oesArr[fileSize];
 
 	Sorting s;
-	s.readFile("../../random_numbers.txt", arr);
+	s.readFile("random_numbers.txt", arr);
+	s.readFile("random_numbers.txt", bsArr);
+	s.readFile("random_numbers.txt", ssArr);
+	s.readFile("random_numbers.txt", csArr);
+	s.readFile("random_numbers.txt", oesArr);
 
-	cout << "Sorting!!!!" << endl;
-	cout << "Size of array in Main: " << sizeof(arr)/sizeof(arr[0]) << endl;
-	for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
-		cout << arr[i] << " ";
-
-	cout << endl; 
-
-	
 	time_t start, end;
-	start = clock();
-	s.SelectionSort(arr, (sizeof(arr)/sizeof(arr[0])));
-	end = clock();
 
-	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << endl;
-	for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
-	{
-		cout << arr[i] << " ";
-	}
+	start = clock();
+	s.BubbleSort(bsArr, (sizeof(arr)/sizeof(arr[0])));
+	end = clock();
+	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+
+
 	return 0;
 }

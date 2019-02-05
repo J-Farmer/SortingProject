@@ -8,7 +8,7 @@ void Sorting::swap(int *a, int *b)
 
 void Sorting::SelectionSort(int arr[], int n)
 {
-	int min_idx = 0;
+	int min_idx;
 
 	for(int i = 0; i < n-1; i++)
 	{
@@ -19,8 +19,8 @@ void Sorting::SelectionSort(int arr[], int n)
 			{
 				min_idx = j;
 			}
-			swap(&arr[min_idx], &arr[j]);
 		}
+		swap(&arr[min_idx], &arr[i]);
 	}
 }
 
@@ -112,16 +112,19 @@ int* Sorting::readFile(const char* file, int arr[])
 {
 	std::ifstream in;
 	in.open(file);
+
+	int temp = 0;
+	int index = 0;
+
+	while(in>>temp)
+	{
+		arr[index] = temp;
+		index++;
+	}
  
-	for (int i = 0; i < 8977; i++)
-	{
-		in >> arr[i]; 
-	}
-
-	for (int i = 0; i < 8977; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-
+	//for (int i = 0; i < 8977; i++)
+	//{
+		//in >> arr[i]; 
+	//}
 	return arr; 
 }
