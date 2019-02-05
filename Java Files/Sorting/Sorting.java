@@ -47,13 +47,13 @@ public class Sorting{
 		{
 			swapped = false;
 			
-			for (int i = start; i < end - 1; ++i) 
+			for (int i = start; i < end - 1; i++) 
 			{ 
-                if (a[i] > a[i + 1]) 
+                if (arr[i] > arr[i + 1]) 
 				{ 
-                    int temp = a[i]; 
-                    a[i] = a[i + 1]; 
-                    a[i + 1] = temp; 
+                    int temp = arr[i]; 
+                    arr[i] = arr[i + 1]; 
+                    arr[i + 1] = temp; 
                     swapped = true; 
                 } 
             } 
@@ -65,50 +65,52 @@ public class Sorting{
   
             end = end - 1; 
   
-            for (int i = end - 1; i >= start; i--) { 
-                if (a[i] > a[i + 1]) { 
-                    int temp = a[i]; 
-                    a[i] = a[i + 1]; 
-                    a[i + 1] = temp; 
-                    swapped = true; 
-                } 
-            } 
-			
-            start = start + 1; 
+            for (int i = end - 1; i >= start; i--)
+	{
+                	if (arr[i] > arr[i + 1])
+			{
+                    		int temp = arr[i];
+                    		arr[i] = arr[i + 1];
+                    		arr[i + 1] = temp;
+                    		swapped = true;
+                	}
+            }
+            start = start + 1;
         }
 	}
-	
+
 	public void oddEvenSort(int[] arr)
 	{
-		boolean isSorted = false; 
-  
-        while (!isSorted) 
-        { 
-            isSorted = true; 
-            int temp =0; 
-  
-            for (int i=1; i<=n-2; i=i+2) 
-            { 
-                if (arr[i] > arr[i+1]) 
-                { 
-                    temp = arr[i]; 
-                    arr[i] = arr[i+1]; 
-                    arr[i+1] = temp; 
-                    isSorted = false; 
-                } 
-            } 
-  
-            for (int i=0; i<=n-2; i=i+2) 
-            { 
-                if (arr[i] > arr[i+1]) 
-                { 
-                    temp = arr[i]; 
-                    arr[i] = arr[i+1]; 
-                    arr[i+1] = temp; 
-                    isSorted = false; 
-                } 
-            } 
-        } 
+		boolean isSorted = false;
+		int n = arr.length;
+
+        	while (!isSorted)
+        	{
+            		isSorted = true;
+            		int temp = 0;
+
+            for (int i=1; i<=n-2; i=i+2)
+            {
+                if (arr[i] > arr[i+1])
+                {
+                    temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    isSorted = false;
+                }
+            }
+
+            for (int i=0; i<=n-2; i=i+2)
+            {
+                if (arr[i] > arr[i+1])
+                {
+                    temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    isSorted = false;
+                }
+            }
+        }
 	}
 
 	public static void main(String args[]){
