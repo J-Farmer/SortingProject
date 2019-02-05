@@ -14,7 +14,7 @@ int main()
 	int csArr[fileSize];
 	int oesArr[fileSize];
 
-	double bsTime = 0, ssTime = 0, csTime = 0 , oesTime = 0;
+	double bsTime = 0, ssTime = 0, csTime = 0 , oesTime = 0, time;
 
 	Sorting s;
 
@@ -26,40 +26,45 @@ int main()
 		s.readFile("random_numbers.txt", csArr);
 		s.readFile("random_numbers.txt", oesArr);
 
-		time_t start, end;
+		time_t start, end, bigStart, bigEnd;
+
+		bigStart = clock();
 
 		start = clock();
 		s.BubbleSort(bsArr, (sizeof(arr) / sizeof(arr[0])));
 		end = clock();
-		double time = (end - start) / (double)CLOCKS_PER_SEC;
-		cout << "Bubble Sort: " << time << " seconds!" << endl;
-		bsTime += time; 
+		time = (end - start) / (double)CLOCKS_PER_SEC;
+		//cout << "Bubble Sort: " << time << " seconds!" << endl;
+		bsTime += time;
 
 
 		start = clock();
 		s.SelectionSort(ssArr, (sizeof(arr) / sizeof(arr[0])));
 		end = clock();
-		double time = (end - start) / (double)CLOCKS_PER_SEC;
-		cout << "Selection Sort: " << time << " seconds!" << endl;
+		time = (end - start) / (double)CLOCKS_PER_SEC;
+		//cout << "Selection Sort: " << time << " seconds!" << endl;
 		ssTime += time;
 
 
 		start = clock();
 		s.CocktailSort(csArr, (sizeof(arr) / sizeof(arr[0])));
 		end = clock();
-		double time = (end - start) / (double)CLOCKS_PER_SEC;
-		cout << "Cocktail Sort: " << time << " seconds!" << endl;
+		time = (end - start) / (double)CLOCKS_PER_SEC;
+		//cout << "Cocktail Sort: " << time << " seconds!" << endl;
 		csTime += time;
 
 
 		start = clock();
 		s.OddEvenSort(oesArr, (sizeof(arr) / sizeof(arr[0])));
 		end = clock();
-		double time = (end - start) / (double)CLOCKS_PER_SEC;
-		cout << "Odd Even Sort: " << time << " seconds!" << endl;
+		time = (end - start) / (double)CLOCKS_PER_SEC;
+		//cout << "Odd Even Sort: " << time << " seconds!" << endl;
 		oesTime += time;
+
+		cout << i << ":" << (clock() - bigStart) / (double)CLOCKS_PER_SEC << endl;
 	}
 
+	cout << endl;
 	cout << "Bubble Sort: " << bsTime / 100 << " seconds!" << endl;
 	cout << "Selection Sort: " << ssTime / 100 << " seconds!" << endl;
 	cout << "Cocktail Sort: " << csTime / 100 << " seconds!" << endl;
