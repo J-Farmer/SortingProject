@@ -29,5 +29,23 @@ int main()
 	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
 
 
+	start = clock();
+	s.SelectionSort(ssArr, (sizeof(arr)/sizeof(arr[0])));
+	end = clock();
+	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+
+
+	start = clock();
+	s.CocktailSort(csArr, (sizeof(arr)/sizeof(arr[0])));
+	end = clock();
+	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+
+
+	start = clock();
+	s.OddEvenSort(oesArr, (sizeof(arr)/sizeof(arr[0])));
+	end = clock();
+	cout << "Time to sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+
+
 	return 0;
 }

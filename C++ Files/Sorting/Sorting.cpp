@@ -48,11 +48,11 @@ void Sorting::CocktailSort(int arr[], int n)
 	bool swapped = true;
 	int start = 0;
 	int end = n-1;
-	
+
 	while(swapped)
 	{
 		swapped = false;
-		
+
 		for(int i=start; i<end; i++)
 		{
 			if(arr[i] > arr[i+1])
@@ -63,9 +63,9 @@ void Sorting::CocktailSort(int arr[], int n)
 		}
 		if(!swapped)
 			break;
-		
+
 		end--;
-		
+
 		for(int i = end-1; i >= start; --i)
 		{
 			if(arr[i] > arr[i+1])
@@ -74,38 +74,38 @@ void Sorting::CocktailSort(int arr[], int n)
 				swapped=true;
 			}
 		}
-		
+
 		start++;
-	}		
+	}
 }
 
 void Sorting::OddEvenSort(int arr[], int n)
 {
 	bool isSorted = false;
-	
+
 	while(!isSorted)
 	{
 		isSorted = true;
-		
-		for (int i=1; i<=n-2; i=i+2) 
-        { 
-            if (arr[i] > arr[i+1]) 
-             { 
-                swap(&arr[i], &arr[i+1]); 
-                isSorted = false; 
-              } 
-        } 
-  
-        // Perform Bubble sort on even indexed element 
-        for (int i=0; i<=n-2; i=i+2) 
-        { 
-            if (arr[i] > arr[i+1]) 
-            { 
-                swap(&arr[i], &arr[i+1]); 
-                isSorted = false; 
-            } 
-        } 
-    }	
+
+		for (int i=1; i<=n-2; i=i+2)
+        {
+            if (arr[i] > arr[i+1])
+             {
+                swap(&arr[i], &arr[i+1]);
+                isSorted = false;
+              }
+        }
+
+
+        for (int i=0; i<=n-2; i=i+2)
+        {
+            if (arr[i] > arr[i+1])
+            {
+                swap(&arr[i], &arr[i+1]);
+                isSorted = false;
+            }
+        }
+    }
 }
 
 int* Sorting::readFile(const char* file, int arr[])
@@ -121,10 +121,10 @@ int* Sorting::readFile(const char* file, int arr[])
 		arr[index] = temp;
 		index++;
 	}
- 
+
 	//for (int i = 0; i < 8977; i++)
 	//{
-		//in >> arr[i]; 
+		//in >> arr[i];
 	//}
-	return arr; 
+	return arr;
 }
