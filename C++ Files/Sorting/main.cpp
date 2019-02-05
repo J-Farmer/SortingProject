@@ -14,38 +14,57 @@ int main()
 	int csArr[fileSize];
 	int oesArr[fileSize];
 
+	double bsTime = 0, ssTime = 0, csTime = 0 , oesTime = 0;
+
 	Sorting s;
 
-	s.readFile("random_numbers.txt", arr);
-	s.readFile("random_numbers.txt", bsArr);
-	s.readFile("random_numbers.txt", ssArr);
-	s.readFile("random_numbers.txt", csArr);
-	s.readFile("random_numbers.txt", oesArr);
+	for (int i = 0; i < 100; i++)
+	{
+		s.readFile("random_numbers.txt", arr);
+		s.readFile("random_numbers.txt", bsArr);
+		s.readFile("random_numbers.txt", ssArr);
+		s.readFile("random_numbers.txt", csArr);
+		s.readFile("random_numbers.txt", oesArr);
 
-	time_t start, end;
+		time_t start, end;
 
-	start = clock();
-	s.BubbleSort(bsArr, (sizeof(arr)/sizeof(arr[0])));
-	end = clock();
-	cout << "Bubble Sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
-
-
-	start = clock();
-	s.SelectionSort(ssArr, (sizeof(arr)/sizeof(arr[0])));
-	end = clock();
-	cout << "Selection Sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+		start = clock();
+		s.BubbleSort(bsArr, (sizeof(arr) / sizeof(arr[0])));
+		end = clock();
+		double time = (end - start) / (double)CLOCKS_PER_SEC;
+		cout << "Bubble Sort: " << time << " seconds!" << endl;
+		bsTime += time; 
 
 
-	start = clock();
-	s.CocktailSort(csArr, (sizeof(arr)/sizeof(arr[0])));
-	end = clock();
-	cout << "Cocktail Sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+		start = clock();
+		s.SelectionSort(ssArr, (sizeof(arr) / sizeof(arr[0])));
+		end = clock();
+		double time = (end - start) / (double)CLOCKS_PER_SEC;
+		cout << "Selection Sort: " << time << " seconds!" << endl;
+		ssTime += time;
 
 
-	start = clock();
-	s.OddEvenSort(oesArr, (sizeof(arr)/sizeof(arr[0])));
-	end = clock();
-	cout << "Odd Even Sort: " << (end - start) / (double) CLOCKS_PER_SEC << " seconds!" << endl;
+		start = clock();
+		s.CocktailSort(csArr, (sizeof(arr) / sizeof(arr[0])));
+		end = clock();
+		double time = (end - start) / (double)CLOCKS_PER_SEC;
+		cout << "Cocktail Sort: " << time << " seconds!" << endl;
+		csTime += time;
+
+
+		start = clock();
+		s.OddEvenSort(oesArr, (sizeof(arr) / sizeof(arr[0])));
+		end = clock();
+		double time = (end - start) / (double)CLOCKS_PER_SEC;
+		cout << "Odd Even Sort: " << time << " seconds!" << endl;
+		oesTime += time;
+	}
+
+	cout << "Bubble Sort: " << bsTime / 100 << " seconds!" << endl;
+	cout << "Selection Sort: " << ssTime / 100 << " seconds!" << endl;
+	cout << "Cocktail Sort: " << csTime / 100 << " seconds!" << endl;
+	cout << "Odd Even Sort: " << oesTime / 100 << " seconds!" << endl;
+	
 
 
 	return 0;
