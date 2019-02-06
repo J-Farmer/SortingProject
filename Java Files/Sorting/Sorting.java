@@ -16,7 +16,7 @@ public class Sorting{
 			}
 		}
 	}
-	
+
 	public void selectionSort(int[] arr)
 	{
 		int n = arr.length;
@@ -30,51 +30,51 @@ public class Sorting{
 					min_idx = j;
 				}
 			}
-			
+
 			int temp =  arr[min_idx];
 			arr[min_idx] = arr[i];
 			arr[i] = temp;
 		}
 	}
-	
+
 	public void cocktailSort(int[] arr)
 	{
 		boolean swapped = true;
 		int start = 0;
 		int end = arr.length;
-		
+
 		while(swapped==true)
 		{
 			swapped = false;
-			
-			for (int i = start; i < end - 1; i++) 
-			{ 
-                if (arr[i] > arr[i + 1]) 
-				{ 
-                    int temp = arr[i]; 
-                    arr[i] = arr[i + 1]; 
-                    arr[i + 1] = temp; 
-                    swapped = true; 
-                } 
-            } 
-  
-            if (swapped == false) 
-                break; 
-			
-            swapped = false; 
-  
-            end = end - 1; 
-  
-            for (int i = end - 1; i >= start; i--)
+
+			for (int i = start; i < end - 1; i++)
 			{
-				if (arr[i] > arr[i + 1])
-				{
+                if (arr[i] > arr[i + 1])
+		{
                     int temp = arr[i];
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                     swapped = true;
                 }
             }
+
+            if (swapped == false)
+                break;
+
+            swapped = false;
+
+            end = end - 1;
+
+            for (int i = end - 1; i >= start; i--)
+		{
+			if (arr[i] > arr[i + 1])
+				{
+                		    int temp = arr[i];
+		                    arr[i] = arr[i + 1];
+                		    arr[i + 1] = temp;
+		                    swapped = true;
+               			 }
+           	 }
             start = start + 1;
         }
 	}
@@ -116,14 +116,14 @@ public class Sorting{
 	public static void main(String args[]){
 		Sorting s = new Sorting();
 		int fileSize = 8977;
-		
+
 		int[] arr = new int[fileSize];
 		int[] bsArr = new int[fileSize];
 		int[] ssArr = new int[fileSize];
 		int[] csArr = new int[fileSize];
 		int[] oesArr = new int[fileSize];
-		
-		long bsTime = 0, ssTime = 0, csTime = 0, oesTime = 0; 
+
+		double bsTime = 0, ssTime = 0, csTime = 0, oesTime = 0;
 		for(int i = 0; i < 100; i++)
 		{
 			try
@@ -142,48 +142,46 @@ public class Sorting{
 					oesArr[index] = Integer.parseInt(num);
 					index++;
 				}
-				is.close(); 
+				is.close();
 			}
 			catch(IOException io)
 			{
 				System.out.print(io.getStackTrace());
-				return; 
+				return;
 			}
-			
-			long startTime, end; 
-		
+
+			long startTime, end;
+
 			startTime = System.nanoTime();
 			s.bubbleSort(bsArr);
 			end = System.nanoTime() - startTime;
-			bsTime += (double)end/1000000000; 
+			bsTime += (double)end/1000000000;
 			//System.out.println("Bubble Sort: " + (double)end/1000000000);
-			
+
 			startTime = System.nanoTime();
 			s.selectionSort(ssArr);
 			end = System.nanoTime() - startTime;
 			ssTime += (double)end/1000000000;
 			//System.out.println("Selection Sort: " + (double)end/1000000000);
-			
+
 			startTime = System.nanoTime();
 			s.cocktailSort(csArr);
 			end = System.nanoTime() - startTime;
 			csTime += (double)end/1000000000;
 			//System.out.println("Cocktail Sort: " + (double)end/1000000000);
-			
+
 			startTime = System.nanoTime();
 			s.oddEvenSort(oesArr);
 			end = System.nanoTime() - startTime;
 			oesTime += (double)end/1000000000;
 			//System.out.println("Odd Even Sort: " + (double)end/1000000000);
 
-			
-			System.out.println();
 		}
-		
-		System.out.println("Bubble Sort: " + bsTime / 100);
-		System.out.println("Selection Sort: " + ssTime / 100);
-		System.out.println("Cocktail Sort: " + csTime / 100);
-		System.out.println("Odd Even Sort: " + oesTime / 100);
+
+		System.out.printf("Bubble Sort: %.3f seconds!%n",  bsTime / 100.0);
+		System.out.printf("Selection Sort: %.3f seconds!%n", ssTime / 100.0);
+		System.out.printf("Cocktail Sort: %.3f seconds!%n", csTime / 100.0);
+		System.out.printf("Odd Even Sort: %.3f seconds!%n", oesTime / 100.0);
 	}
 }
 
