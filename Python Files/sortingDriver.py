@@ -4,6 +4,7 @@ from pigeonhole_Sort import pigeonholeSort
 from shellSort import shellSort
 from quickSort import quickSort
 import quickSortH, quickSortL
+from combSort import combSort
 
 def formatTime(algorithm, time):
 	if(time > 60):
@@ -28,6 +29,7 @@ phsTime = []
 shsTime = []
 qsHTime = []
 qsLTime = []
+cbsTime = []
 
 for i in range(0,100):
         
@@ -99,6 +101,13 @@ for i in range(0,100):
         time = round(end-start,3)
         qsLTime.append(time)
         #formatTime("Quick Sort (Lomuto)", time)
+
+        cbs = arr[:]
+        start = timer()
+        combSort(cbs)
+        end = timer()
+        time = round(end-start,3)
+        cbsTime.append(time)
         
         bigEnd = timer()
         time = round(bigEnd-bigStart,3)
@@ -113,6 +122,7 @@ formatTime("Pigeonhole Sort", round(sum(phsTime)/len(phsTime),3))
 formatTime("Shell Sort", round(sum(shsTime)/len(shsTime),3))
 formatTime("Quick Sort (H) Sort", round(sum(qsHTime)/len(qsHTime),3))
 formatTime("Quick Sort (L) Sort", round(sum(qsLTime)/len(qsLTime),3))
+formatTime("Comb Sort", round(sum(cbsTime)/len(cbsTime),3))
 
 del phs
 del shs
