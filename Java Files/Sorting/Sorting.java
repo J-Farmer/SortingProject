@@ -177,7 +177,7 @@ public class Sorting{
 			oesTime += (double)end/1000000000;
 			//System.out.println("Odd Even Sort: " + (double)end/1000000000);
 			
-			System.out.printf("%d: %.3f seconds!%n", i, (System.nanoTime() - bigStart)/1000000000);
+			System.out.printf("%d: %.3f seconds!%n", i, (double)(System.nanoTime() - bigStart)/1000000000);
 		}
 
 		System.out.printf("Bubble Sort: %.3f seconds!%n",  bsTime / 100.0);
