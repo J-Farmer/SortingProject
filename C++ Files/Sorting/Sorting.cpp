@@ -205,17 +205,17 @@ void Sorting::PigeonholeSort(int arr[], int n)
     } 
     int range = max - min + 1; 
   
-    std::vector<int> holes[range]; 
+    int holes[range]; 
   
     for (int i = 0; i < n; i++) 
-        holes[arr[i]-min].push_back(arr[i]); 
+        holes[arr[i]-min]++; 
   
     int index = 0; 
     for (int i = 0; i < range; i++) 
-    { 
-       vector<int>::iterator it; 
-       for (it = holes[i].begin(); it != holes[i].end(); ++it) 
-            arr[index++]  = *it; 
+    {  
+       for (int j = 0; j < range; j++) 
+		   while(holes[j]-->0)
+			arr[index++]  = j+min; 
     }
 }
 
