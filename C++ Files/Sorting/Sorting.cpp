@@ -160,6 +160,7 @@ void Sorting::ShellSort(int arr[], int n)
                           
             arr[j] = temp; 
         } 
+	}
 }
 
 void Sorting::CombSort(int arr[], int n)
