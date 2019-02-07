@@ -43,7 +43,7 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         bsTime.append(time)
-        #formatTime("Bubble Sort", time)
+        formatTime("Bubble Sort", time)
         del bs
 
         ss = arr[:]
@@ -52,7 +52,7 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         ssTime.append(time)
-        #formatTime("Selection Sort", time)
+        formatTime("Selection Sort", time)
         del ss
 
         cs = arr[:]
@@ -61,7 +61,7 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         csTime.append(time)
-        #formatTime("Cocktail Sort", time)
+        formatTime("Cocktail Sort", time)
         del cs
 
         oes = arr[:]
@@ -70,46 +70,53 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         oesTime.append(time)
-        #formatTime("Odd Even Sort", time)
-
+        formatTime("Odd Even Sort", time)
+        del oes
+        
         phs = arr[:]
         start = timer()
         pigeonholeSort(phs)
         end = timer()
         time = round(end-start,3)
         phsTime.append(time)
-        #formatTime("Pigeonhole Sort", time)
-
+        formatTime("Pigeonhole Sort", time)
+        del phs
+        
         shs = arr[:]
         start = timer()
         shellSort(shs)
         end = timer()
         time = round(end-start,3)
         shsTime.append(time)
-        #formatTime("Shell Sort", time)
-
+        formatTime("Shell Sort", time)
+        del shs
+        
         qsH = arr[:]
         start = timer()
         quickSortH.quickSort(qsH, 0, len(qsH)-1)
         end = timer()
         time = round(end-start,3)
         qsHTime.append(time)
-        #formatTime("Quick Sort (Hoare)", time)
-
+        formatTime("Quick Sort (Hoare)", time)
+        del qsH
+        
         qsL = arr[:]
         start = timer()
         quickSortL.quickSort(qsL, 0, len(qsL)-1)
         end = timer()
         time = round(end-start,3)
         qsLTime.append(time)
-        #formatTime("Quick Sort (Lomuto)", time)
-
+        formatTime("Quick Sort (Lomuto)", time)
+        del qsL
+        
         cbs = arr[:]
         start = timer()
         combSort(cbs)
         end = timer()
         time = round(end-start,3)
         cbsTime.append(time)
+        formatTime("Comb Sort", time)
+        del cbs
 
         iss = arr[:]
         start = timer()
@@ -117,11 +124,12 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         isTime.append(time)
+        formatTime("Insertion Sort", time)
+        del iss
         
         bigEnd = timer()
         time = round(bigEnd-bigStart,3)
         formatTime(str(i+1), time)
-
 
 formatTime("Bubble Sort", round(sum(bsTime)/len(bsTime),3))
 formatTime("Selection Sort", round(sum(ssTime)/len(ssTime),3))
@@ -134,8 +142,6 @@ formatTime("Quick Sort (L) Sort", round(sum(qsLTime)/len(qsLTime),3))
 formatTime("Comb Sort", round(sum(cbsTime)/len(cbsTime),3))
 formatTime("Insertion Sort", round(sum(isTime)/len(isTime),3))
 
-del phs
-del shs
-del oes
+del bigEnd
 del arr
 del time
