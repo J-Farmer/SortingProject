@@ -99,7 +99,7 @@ int main()
 		phsTime += time;
 		
 		start = clock();
-		s.QuickSort(qsArr, (sizeof(arr) / sizeof(arr[0])));
+		s.QuickSort(qsArr, 0, (sizeof(arr) / sizeof(arr[0])));
 		end = clock();
 		time = (end - start) / (double)CLOCKS_PER_SEC;
 		//cout << "Quick Sort: " << time << " seconds!" << endl;

@@ -164,7 +164,6 @@ void Sorting::ShellSort(int arr[], int n)
 
 void Sorting::CombSort(int arr[], int n)
 {
-	
     int gap = n; 
 	
     bool swapped = true; 
