@@ -5,6 +5,7 @@ from shellSort import shellSort
 from quickSort import quickSort
 import quickSortH, quickSortL
 from combSort import combSort
+from insertionSort import insertionSort
 
 def formatTime(algorithm, time):
 	if(time > 60):
@@ -30,6 +31,7 @@ shsTime = []
 qsHTime = []
 qsLTime = []
 cbsTime = []
+isTime = []
 
 for i in range(0,100):
         
@@ -108,6 +110,13 @@ for i in range(0,100):
         end = timer()
         time = round(end-start,3)
         cbsTime.append(time)
+
+        iss = arr[:]
+        start = timer()
+        insertionSort(iss)
+        end = timer()
+        time = round(end-start,3)
+        isTime.append(time)
         
         bigEnd = timer()
         time = round(bigEnd-bigStart,3)
@@ -123,6 +132,7 @@ formatTime("Shell Sort", round(sum(shsTime)/len(shsTime),3))
 formatTime("Quick Sort (H) Sort", round(sum(qsHTime)/len(qsHTime),3))
 formatTime("Quick Sort (L) Sort", round(sum(qsLTime)/len(qsLTime),3))
 formatTime("Comb Sort", round(sum(cbsTime)/len(cbsTime),3))
+formatTime("Insertion Sort", round(sum(isTime)/len(isTime),3))
 
 del phs
 del shs
