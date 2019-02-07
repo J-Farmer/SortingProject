@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cplusplus="C++\ Files/Sorting/"
+java="Java\ Files/Sorting/"
+python="Python\ Files/"
+
+cd $cplusplus
+#g++ main.cpp Sorting.cpp -I. -o Sorting
+#./Sorting > output.out
+
+echo "~/Sorting\ Project"
+
+echo $java
+#javac Sorting.java
+#java Sorting > output.out
+
+echo "~/Sorting\ Project"
+
+echo $python
+#python sortingDriver.py > output.out
+
+
