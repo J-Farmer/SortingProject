@@ -203,9 +203,10 @@ void Sorting::PigeonholeSort(int arr[], int n)
         if (arr[i] > max) 
             max = arr[i]; 
     } 
+
     int range = max - min + 1; 
   
-    int holes[range]; 
+    int* holes = new int[range]; 
   
     for (int i = 0; i < n; i++) 
         holes[arr[i]-min]++; 
