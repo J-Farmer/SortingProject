@@ -150,8 +150,9 @@ public class Sorting{
 				return;
 			}
 
-			long startTime, end;
-
+			long startTime, end, bigStart;
+			bigStart = System.nanoTime();
+			
 			startTime = System.nanoTime();
 			s.bubbleSort(bsArr);
 			end = System.nanoTime() - startTime;
@@ -175,7 +176,8 @@ public class Sorting{
 			end = System.nanoTime() - startTime;
 			oesTime += (double)end/1000000000;
 			//System.out.println("Odd Even Sort: " + (double)end/1000000000);
-
+			
+			System.out.printf("%i: %.3f seconds!%n", i,(System.nanoTime() - bigStart)/1000000000);
 		}
 
 		System.out.printf("Bubble Sort: %.3f seconds!%n",  bsTime / 100.0);
