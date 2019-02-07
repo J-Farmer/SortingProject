@@ -175,7 +175,7 @@ void Sorting::CombSort(int arr[], int n)
 		gap = (gap*10)/13; 
   
 		if (gap < 1) 
-			return 1; 
+			gap = 1; 
   
  
         swapped = false; 
@@ -228,7 +228,7 @@ int Sorting::partition(int arr[], int low, int high)
 	{
 		if(arr[j] < pivot)
 		{
-			i++
+			i++;
 			swap(&arr[i], &arr[j]);
 		}
 	}
