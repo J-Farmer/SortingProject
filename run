@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cpp="C++ Files/Sorting/"
+java="Java Files/Sorting/"
+python="Python Files/"
+
+cd "$cpp"
+echo "Compiling C++"
+g++ main.cpp Sorting.cpp -I. -o Sorting
+echo "Sorting C++"
+./Sorting > output.out
+
+cd "~/Sorting Project/"
+echo "Home Directory"
+
+cd $java
+echo "Compiling Java"
+javac Sorting.java
+echo "Sorting Java"
+java Sorting > output.out
+
+cd "~/Sorting Project/"
+echo "Home Directory"
+
+cd $python
+echo "Sorting Python"
+python sortingDriver.py > output.out
+
+
