@@ -22,25 +22,37 @@ for lines in file:
 file.close()
 del file
 
-file = open("../runtimes.csv","a")
+#file = open("../runtimes.csv","a")
 
-largeTime = []
-for i in range(100, 10000, 100):
+largeBSTime = []
+largeOESTime = []
+for i in range(100, 15000, 100):
         num = []
-        time = 0
+        bstime = 0
+        oestime = 0
         for j in range(0,i):
                 num.append(randint(-10000,10000))
                 
-        for k in range(0,100):        
+        for k in range(0,100):
+                bs = num[:]
                 start = timer()
                 bubbleSort(num)
                 end = timer()
-                
-                time = time + round(end - start,3)
-        largeTime.append(time / 100)
-        print("Bubble Sort",str(i)+":","took",round((time / 100),3),"seconds!")
-        file.write(str(time)+"\n")
+                bstime = bstime + round(end - start,3)
 
-file.close()
-plt.plot(largeTime)
+                oes = num[:]
+                start = timer()
+                oddEvenSort(oes)
+                end = timer()
+                oestime = oestime + round(end - start,3)
+                
+        largeBSTime.append(bstime / 100)
+        largeOESTime.append(oestime / 100)
+        print("Bubble Sort",str(i)+":","took",round((bstime / 100),3),"seconds!")
+        print("Odd Even Sort",str(i)+":","took",round((oestime / 100),3),"seconds!")
+        #file.write(str(time)+"\n")
+
+#file.close()
+plt.plot(largeBSTime)
+plt.plot(largeOESTime)
 plt.show()
