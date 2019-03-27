@@ -33,11 +33,11 @@ for i in range(100,8000,100):
 	cbsTime = []
 	isTime = []
 
-	for i in range(0,100):
+	for k in range(0,100):
 			
 			bigStart = timer()
 			
-			bs = arr[:]
+			bs = arr[:i]
 			print(bs)
 			start = timer()
 			bubbleSort(bs)
