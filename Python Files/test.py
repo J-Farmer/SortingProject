@@ -8,6 +8,7 @@ import quickSortH, quickSortL
 from combSort import combSort
 from insertionSort import insertionSort
 import matplotlib.pyplot as plt
+import numpy as np
 
 def formatTime(algorithm, time):
 	if(time > 60):
@@ -36,7 +37,7 @@ largeCBSTime = []
 largeSHSTime = []
 largeISSTime = []
 
-for i in range(100, 2000, 100):
+for i in range(100, 2100, 100):
         print(i)
         num = []
         bstime = 0
@@ -50,8 +51,7 @@ for i in range(100, 2000, 100):
         isstime = 0
         for j in range(0,i):
                 num.append(randint(-10000,10000))
-
-        print(len(num))    
+    
         for k in range(0,100):
                 bs = num[:]
                 start = timer()
